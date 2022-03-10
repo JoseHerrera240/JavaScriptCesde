@@ -1,15 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Avanzado</title>
-</head>
-<script>
-    
-</script>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Callbacks - Promises</title>
+    </head>
+    <body>
+        <h1>Callbacks and Promises</h1>
+        <img src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif" id="loading" style="width: 150px;">
+        <p id="mensaje" style="color:Red"></p>
+        <form>
+            <label>ID</label>
+            <input type="text" name="di" id="di">
+            <br>
+            
+            <label>Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <br>
+            
+            <label>Salario</label>
+            <input type="number" name="salario" id="salario">
+            <br>
+            
+        </form>
+        <script>
+            // function fadd(num1,num2) {
+            //     return parseFloat(num1)+parseFloat(num2);
+            // }
+
+            let fadd = (num1,num2) => parseFloat(num1)+parseFloat(num2);
+
+            function fops(num1,num2,oper){
+                let res = 0;
+                switch (oper) {
+                    case "+":
+                        res = parseFloat(num1)+parseFloat(num2);
+                        break;
+                    case "-":
+                        res = parseFloat(num1)-parseFloat(num2);
+                    break;
+                    case "*":
+                        res = parseFloat(num1)*parseFloat(num2);
+                        break;
+                    case "/":
+                        res = parseFloat(num1)/parseFloat(num2);
+                    break;
+                }
+                return res;
+            }
+            //Callback
+            function fop(fncall) {
+                let valor1 = prompt("Ingrese el valor 1:");
+                let valor2 = prompt("Ingrese el valor 2:");
+                let op = prompt("Ingrese el operador + - * /:");
+                return fncall(valor1,valor2,op);
+            }
+            //Ejecutar
+            //console.log(fop(fadd));
+            //console.log(fop(fops));
+
+            let load = document.getElementById('loading');
+            load.style.visibility = 'hidden';
+            function servidor(){
+                setTimeout(function(){
+                    let datosper = {di:"123",nombre:"Antonio",salario:2500000};
+                    console.log("Server response");
+                    console.log(`${datosper.di} ${datosper.nombre} ${datosper.salario}`);
+                    document.getElementById('di').value = datosper.di;
+                    document.getElementById('nombre').value = datosper.nombre;
+                    document.getElementById('salario').value = datosper.salario;
+                    document.getElementById('mensaje').innerHTML = "Server response";
+
+                    load.style.visibility = 'hidden';
+                },5000)
+            }
+            
+            function fncb(fnc){
+                fnc();
+                console.log("Please wait...");
+                load.style.visibility = 'visible';
+                document.getElementById('mensaje').innerHTML = "Please wait...";
+            }
+
+            fncb(servidor);
+
+            let promesa1 = new Promise((resolve,reject)=>{
+                let nota = 5;
+                if (nota >= 4) {
+                    resolve("Tiene derecho al viaje");
+                }else{
+                    reject("NO tiene derecho al viaje");
+                }
+            })
+
+            promesa1
+                .then((mensaje)=>{
+                    console.log(mensaje);
+                })
+                .then(()=>{
+                    console.log("...con todos los excesos...");
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+
+            function fpromesa2(usuario){
+                return new Promise((resolve, reject)=>{
+                    if(usuario=="lruiz"){
+                        let datosper = {nombre:"Lina Ruiz",email:"lruiz@gmail.com"};
+                        resolve(datosper);
+                    }else{
+                        reject("Not found");
+                    }
+                })
+            }
+            fpromesa2("lruiz")
+                .then((data)=>{
+                    console.log(`Nombre: ${data.nombre}, Email: ${data.email}`);
+                })
+                .catch((error)=>{
+                    console.log("Not found");
+                })
+        </script>
+    </body>
 </html>
