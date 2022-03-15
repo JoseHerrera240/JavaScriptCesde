@@ -5,40 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../JavaScriptCesde/csstalleravanzadojs.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Taller avanzado js</title>
 </head>
 <body>
-        <!-- <img src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif" id="loading" style="width: 150px;">
-        <p id="mensaje" style="color:Red"></p> -->
+        <h1>Taller avanzado de javaScript</h1>
+         <img src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif" id="loading" style="width: 150px;">
+        <p id="mensaje" style="color:Red"></p> 
         <form>
-            <label>Referencia</label>
-                <input type="text" name="referencia" id="referencia">
-            <!-- <br>    
-            <label>Descripcion</label>
-                <input type="text" name="descripcion" id="descripcion">
-            <br>     
-            <label>Precio</label>
-                <input type="number" name="precio" id="precio">
-            <br>     
-            <label>Existencia</label>
-                <input type="number" name="existencia" id="existencia">
-            <br> -->
-            <button type="button" onclick="search()">Search</button>
+            <h3>Buscando productos por referencia</h3>
+            <div class="form-group">
+                <label>Referencia</label>
+                    <input class="form-control" type="text" name="referencia" id="referencia">
+            </div>  
+            <div class="form-group">
+                <label>Descripcion</label>
+                    <input class="form-control" type="text" name="descripcion" id="descripcion">
+            </div>
+            <div class="form-group">  
+                <label>Precio</label>
+                    <input class="form-control" type="number" name="precio" id="precio">
+            </div>
+            <div class="form-group">    
+                <label>Existencia</label>
+                    <input class="form-control" type="number" name="existencia" id="existencia">
+            </div>
+                <button id="buscar" class="btn btn-primary" type="button" onclick="search()">Search</button>
+            
         </form>
-        <div>
-            <table>
-                <thead>
-                    <th>
-                        <td>Descripcion</td>
-                        <td>precio</td>
-                        <td>existencia</td>
-                    </th>
-                </thead>
-                <tbody>
-                    <tr></tr>
-                </tbody>
-            </table>
-        </div>
-    <script src="../taller js avanzado/scripts.js"></script>
-</body>
+    <script src="../JavaScriptCesde/scripts.js"></script>
+    </body>
 </html>

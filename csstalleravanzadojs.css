@@ -1,0 +1,16 @@
+
+form{
+    background-color: #6CE6BA;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+#buscar{
+    background-color: #8E9A96;
+    border-color: #8E9A96;
+}
+body{
+    padding: 1rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
