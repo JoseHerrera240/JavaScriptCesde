@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Callbacks - Promises</title>
-    </head>
-    <body>
-        <h1>Callbacks and Promises</h1>
-        <img src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif" id="loading" style="width: 150px;">
-        <p id="mensaje" style="color:Red"></p>
-        <form>
-            <label>ID</label>
-            <input type="text" name="di" id="di">
-            <br>
-            
-            <label>Nombre</label>
-            <input type="text" name="nombre" id="nombre">
-            <br>
-            
-            <label>Salario</label>
-            <input type="number" name="salario" id="salario">
-            <br>
-            
-        </form>
-        <script>
+
             // function fadd(num1,num2) {
             //     return parseFloat(num1)+parseFloat(num2);
             // }
@@ -99,7 +73,7 @@
                     console.log(mensaje);
                 })
                 .then(()=>{
-                    console.log("...con todos los excesos...");
+                    console.log("...con todos los axcesos...");
                 })
                 .catch(function(error){
                     console.log(error);
@@ -122,6 +96,4 @@
                 .catch((error)=>{
                     console.log("Not found");
                 })
-        </script>
-    </body>
-</html>
+        
