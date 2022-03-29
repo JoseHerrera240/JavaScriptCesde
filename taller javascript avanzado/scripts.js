@@ -10,6 +10,8 @@ let productos = [
     {referencia: 8, descripcion: "Limpia pisos", preciounitario: 9000, existencia: 56},
     {referencia: 9, descripcion: "astral", preciounitario: 12000, existencia: 10}
  ]
+let tablaProducto = document.getElementById('tablaProductos')
+let cuerpoTabla = document.createElement('tbody')
 function recorrer(ref){
     for (let i = 1; i<productos.length; i++){
        if( ref == i){
@@ -40,32 +42,54 @@ function fncb(fnc){
 
 fncb(servidor)
 
-// Promesa para el punto 5
+//Script para mostrar los productos en la tabla
 
- // Promesas
-//  let promesa1 = new Promise((resolve,reject)=>{
-//     let nota = 5;
-//     if (nota >= 4) {
-//         resolve("Tiene derecho al viaje");
+
+
+productos.forEach(p => {
+    console.log(p.referencia)
+    let fila = document.createElement('tr')
+
+    let td = document.createElement('td')
+    td.innerText = p.referencia
+    fila.appendChild(td)
+    
+    td = document.createElement('td')
+    td.innerText = p.descripcion
+    fila.appendChild(td)
+    
+    td = document.createElement('td')
+    td.innerText = p.preciounitario
+    fila.appendChild(td)
+    
+    td = document.createElement('td')
+    td.innerText = p.existencia
+    fila.appendChild(td)
+
+    cuerpoTabla.appendChild(fila)
+})
+
+tablaProducto.appendChild(cuerpoTabla)
+
+
+
+//script de promesas y callbacks
+
+// let promesa1 = new Promise((resolve,reject)=>{
+//     if(document.getElementById('descripcion').value == "" & document.getElementById('preciounitario').value == "" & document.getElementById('existencia').value == ""){
+//         resolve("El item se encuentra en la base de datos")
 //     }else{
-//         reject("NO tiene derecho al viaje");
+//         reject("No se encuentra el producto en la base de datos")
 //     }
 // })
-let promesa1 = new Promise((resolve,reject)=>{
-    if(document.getElementById('descripcion').value == "" & document.getElementById('preciounitario').value == "" & document.getElementById('existencia').value == ""){
-        resolve("El item se encuentra en la base de datos")
-    }else{
-        reject("No se encuentra el producto en la base de datos")
-    }
-})
 
-.then((mensaje)=>{
-    console.log(mensaje)
-})
-.then(()=>{
-    console.log("BIen hecho")
-})
-.catch(function(error){
-    console.log(error);
-})
+// .then((mensaje)=>{
+//     console.log(mensaje)
+// })
+// .then(()=>{
+//     console.log("BIen hecho")
+// })
+// .catch(function(error){
+//     console.log(error);
+// })
 
