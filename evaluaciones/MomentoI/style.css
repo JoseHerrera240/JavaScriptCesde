@@ -1,4 +1,4 @@
-/* body{
+ body{
     background-color: #6CE6BA;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -7,45 +7,10 @@
     background-color: #8E9A96;
     border-color: #8E9A96;
 }
+
 body{
     padding: 1rem;
 }
 h1,h2,h3{
     text-align: center;
-    let inmuebles=[
-    {idInmueble : 0, direccion:"cra 35 67 125", telefono:"3152140022",precio:150000000,estado:true},
-    {idInmueble : 1, direccion:"cra 48 25 06", telefono:"3150500427",precio:148000000,estado:false},
-    {idInmueble : 2, direccion:"calle 35 67 125", telefono:"3151234567",precio:80000000,estado:true},
-    {idInmueble : 3, direccion:"avenida 35 67 125", telefono:"3158567891",precio:100000000,estado:false},
-    {idInmueble : 4, direccion:"cra 62 18 12", telefono:"3155677742",precio:110000000,estado:true},
-    {idInmueble : 5, direccion:"cra 48 5 15", telefono:"315455455",precio:900000000,estado:false},
-    {idInmueble : 6, direccion:"cra 35 67 125", telefono:"315644654",precio:160000000,estado:true},
-    {idInmueble : 7, direccion:"DGnal 5 45 125", telefono:"315245454",precio:128000000,estado:true},
-    {idInmueble : 8, direccion:"cra 82 5 05", telefono:"3002140022",precio:70000000,estado:true},
-    {idInmueble : 9, direccion:"cra 80 10 12", telefono:"3120505522",precio:50000000,estado:true}
-]
-function recorrer(referencia){
-    for(let i = 1; i<productos.length; i++){
-        if(referencia == i){
-            console.log(inmuebles[i])
-            console.log(inmuebles[i].referencia)
-            document.getElementById('direccion').value=inmuebles[i].direccion
-            document.getElementById('telefono').value=inmuebles[i].telefono
-            document.getElementById('precio').value=inmuebles[i].precio
-            document.getElementById('estado').value=inmuebles[i].estado
-        }else{
-            console.log("Cierre de bucle")
-        }
-    }
 }
-
-function search(){
-    let idUsuario = parseInt(document.getElementById('idInmueble').value)
-    recorrer(idUsuario) 
-}
-} */
-.visible{
-    display:block;
-    }
-.invisible{display:none}
-     

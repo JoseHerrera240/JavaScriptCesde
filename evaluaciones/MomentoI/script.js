@@ -1,15 +1,15 @@
 let inmuebles=[
-    {idInmueble: 0, direccion:"", telefono:00,precio:00, estado:"ocupado"},
-    {idInmueble: 1, direccion:"cra 35 67 125", telefono:3152140022,precio:258840000, estado:"disponible"},
-    {idInmueble: 2, direccion:"cra 48 25 06", telefono:3150500427,precio:148000000, estado:"ocupado"},
-    {idInmueble: 3, direccion:"calle 35 67 125", telefono:3151234567,precio:200000000, estado:"disponible"},
-    {idInmueble: 4, direccion:"avenida 35 67 125", telefono:3158567891,precio:250000000, estado:"disponible"},
-    {idInmueble: 5, direccion:"cra 62 18 12", telefono:3155677742,precio:110000000, estado:"ocupado"},
-    {idInmueble: 6, direccion:"cra 48 5 15", telefono:315455455,precio:450000000, estado:"disponible"},
-    {idInmueble: 7, direccion:"cra 35 67 125", telefono:315644654,precio:168000000, estado:"disponible"},
-    {idInmueble: 8, direccion:"DGnal 5 45 125", telefono:315245454,precio:228000000, estado:"ocupado"},
-    {idInmueble: 9, direccion:"cra 82 5 05", telefono:3002140022,precio:300000000, estado:"disponible"},
-    {idInmueble: 10, direccion:"cra 80 10 12", telefono:3120505522,precio:52000000, estado:"disponible"}
+    {idInmueble: 0, direccion:"", telefono:00,precio:00, estado:"notAvailable"},
+    {idInmueble: 1, direccion:"cra 35 67 125", telefono:3152140022,precio:258840000, estado:"available"},
+    {idInmueble: 2, direccion:"cra 48 25 06", telefono:3150500427,precio:148000000, estado:"notAvailable"},
+    {idInmueble: 3, direccion:"calle 35 67 125", telefono:3151234567,precio:200000000, estado:"available"},
+    {idInmueble: 4, direccion:"avenida 35 67 125", telefono:3158567891,precio:250000000, estado:"available"},
+    {idInmueble: 5, direccion:"cra 62 18 12", telefono:3155677742,precio:110000000, estado:"notAvailable"},
+    {idInmueble: 6, direccion:"cra 48 5 15", telefono:315455455,precio:450000000, estado:"available"},
+    {idInmueble: 7, direccion:"cra 35 67 125", telefono:315644654,precio:168000000, estado:"available"},
+    {idInmueble: 8, direccion:"DGnal 5 45 125", telefono:315245454,precio:228000000, estado:"notAvailable"},
+    {idInmueble: 9, direccion:"cra 82 5 05", telefono:3002140022,precio:300000000, estado:"available"},
+    {idInmueble: 10, direccion:"cra 80 10 12", telefono:3120505522,precio:52000000, estado:"available"}
 ]
 let idInmueble =document.getElementById("idInmueble")
 let direccion = document.getElementById("direccion")
@@ -36,14 +36,14 @@ precio.onblur=()=>{
 function recorrer(ref){
     for(let i = 0; i<inmuebles.length; i++){
         var vista = inmuebles[i].estado
-        if(ref == i & vista == "disponible"){
+        if(ref == i & vista == "available"){
          document.getElementById('direccion').value=inmuebles[i].direccion
          document.getElementById('telefono').value=inmuebles[i].telefono
          document.getElementById('precio').value=inmuebles[i].precio
          document.getElementById('mensajenohay').innerHTML = ""
             break
         }else{
-            document.getElementById('mensajenohay').innerHTML = "El inmueble no se encuentra disponible"
+            document.getElementById('mensajenohay').innerHTML = "The property not available"
             document.getElementById('direccion').value=inmuebles[i].direccion
             document.getElementById('telefono').value=inmuebles[i].telefono
             document.getElementById('precio').value=inmuebles[i].precio
@@ -59,7 +59,7 @@ function search(){
 //PROMESA DE TABLA
 function fpinmuebles(arrobj){
     return new Promise((resolve,reject)=>{
-        document.getElementById('mensajepromesa').innerHTML = "recuperando los inmuebles"
+        document.getElementById('mensajepromesa').innerHTML = "searching properties"
         setTimeout(()=>{
             let mstate = true
             if(mstate){
@@ -74,15 +74,15 @@ function fpinmuebles(arrobj){
 //ejecucion de promesa
 fpinmuebles(inmuebles)
     .then((data)=>{
-        let mihtml = `<table border = 1>
-                        <th>Id del Inmueble</th>
-                        <th>Dirección</th>                    
-                        <th>telefono</th>                    
-                        <th>Precio</th>                    
-                        <th>Estado</th>                    
+        let mihtml = `<table id="tabla" class="table table-striped table-dark">
+                        <th scope="col">Id Property</th>
+                        <th scope="col">Address</th>                    
+                        <th scope="col">Phone</th>                    
+                        <th scope="col">Price</th>                    
+                        <th scope="col">condition</th>                    
         `
         for(reg of data){
-            if(reg.precio >=  200000000  & reg.precio <=  300000000 & reg.estado == "disponible" ){
+            if(reg.precio >=  200000000  & reg.precio <=  300000000 & reg.estado == "available" ){
             mihtml += `<tr>
                         <td>${reg.idInmueble}</td>             
                         <td>${reg.direccion}</td>             
