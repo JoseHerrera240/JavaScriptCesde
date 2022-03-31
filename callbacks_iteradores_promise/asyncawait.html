@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async - await</title>
+</head>
+<body>
+    <h1>Manejo de proceso asincrónicos con Async - await</h1>
+    <script>
+        let vehiculos = [
+            {placa:"phb077", marca:"Renault"},
+            {placa:"lpq548", marca:"mazda"}
+            
+        ]
+        let vehiculo1 = [];
+        function mensaje(texto){
+            return texto
+        }
+        //crear funci´+on asincronica que invoque mensaje - función 
+        async function fasync(usuario){
+            let mensaje1 = await mensaje("Bienvenido al sistema ")
+            console.log(`${usuario}: ${mensaje1}`)
+        }
+        // Invocar la función fasync
+        // fasync("Pedro Arismendy")
+
+        //promesa de tipo función
+
+        function prom1(arreglo){
+            return new Promise((resolve, reject) =>{
+                if(arreglo.length > 0){
+                    setTimeout(()=>{
+                        resolve(arreglo)
+                    },3000)
+                }else{
+                    setTimeout(()=>{
+                        reject("No hay vehículos que mostrar")
+                    },3000)
+                }
+            })
+        }
+        // prom1(vehiculos)
+        //     .then((data)=>console.log(data))
+        //     .catch(function(error){
+        //         console.log(error)
+        //     })
+        async function fasyncprom1(){
+                //Invocar la promesa prom1
+            try{ 
+                let resultado = await prom1(vehiculos)
+                console.log(resultado)
+            }
+            catch{
+                console.log(error)
+            }
+        }
+        //ejecutar fasyncprom1
+        // fasyncprom1()
+
+        // Consumir api rest del sitio 
+        //con la función fetch()
+
+        function getUsers(id){
+            let url = `https://jsonplaceholder.typicode.com/users/${id}`
+            //consumir la api rest con fetch - promise
+            fetch(url)
+                .then(resp => resp.json())
+                .then(datausers => {
+                    console.log(`Nombre: ${datausers.name}, Email: ${datausers.email}`)
+                })
+        }
+        //ejecutar 
+        // getUsers()
+        function getUsersById(id){
+            let url = `https://jsonplaceholder.typicode.com/users/${id}`
+            let response = await fetch(url)
+            let json = await response.json()
+            if(response.status != 200){
+                throw Error("Id no encontrada")
+            }
+            return json.name
+        }
+        (async ()=>{
+            try{
+                let data = await getUsersById(5)
+                console.log(datausers)
+            }
+            catch(e){
+                console.log(e)
+            }
+        })()
+
+    </script>
+</body>
+</html>
