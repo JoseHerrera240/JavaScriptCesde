@@ -72,7 +72,8 @@ function fpinmuebles(arrobj){
 }
 
 //ejecucion de promesa
-fpinmuebles(inmuebles)
+btnlistadeinmueble.addEventListener('click',function(){
+    fpinmuebles(inmuebles)
     .then((data)=>{
         let mihtml = `<table id="tabla" class="table table-striped table-dark">
                         <th scope="col">Id Property</th>
@@ -98,3 +99,5 @@ fpinmuebles(inmuebles)
     .catch((error)=>{
         document.getElementById('mensajepromesa').innerHTML=error
     })
+})
+
