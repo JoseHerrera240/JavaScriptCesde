@@ -6,11 +6,24 @@
 #buscar{
     background-color: #8E9A96;
     border-color: #8E9A96;
+    width: 8rem;
 }
-
+#btnlistadeinmueble{
+    background-color: #8E9A96;
+    border-color: #8E9A96;
+    width: 8rem;
+}
+#send{
+    background-color: #8E9A96;
+    border-color: #8E9A96;
+    width: 8rem;
+}
 body{
     padding: 1rem;
 }
 h1,h2,h3{
     text-align: center;
+}
+.spanrequired{
+    color: #8E9A96;
 }

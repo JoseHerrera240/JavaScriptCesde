@@ -16,19 +16,19 @@ let direccion = document.getElementById("direccion")
 let precio = document.getElementById("precio")
 let telefono = document.getElementById("telefono")
 idInmueble.onfocus = ()=>{
-    mid.innerHTML ="* Solo se aceptan numeros";
+    mid.innerHTML ="* only numbers";
 }
 idInmueble.onblur=()=>{
    mid.innerHTML ="";
 }
 direccion.onfocus = ()=>{
-    mdescripcion.innerHTML ="* La direccion es obligatoria";
+    mdescripcion.innerHTML ="* address is required";
 }
 direccion.onblur=()=>{
     mdescripcion.innerHTML ="";
 }
 precio.onfocus = ()=>{
-    mprecio.innerHTML ="* Debe estar entre 100 millones y 500 millones";
+    mprecio.innerHTML ="* must be between 100 million and 500 million";
 }
 precio.onblur=()=>{
     mprecio.innerHTML ="";
@@ -101,3 +101,18 @@ btnlistadeinmueble.addEventListener('click',function(){
     })
 })
 
+//enviar
+// function fpcaptura(captura){
+//     return new Promise((resolve,reject)=>{
+//             let mstate = true
+//             if(mstate){
+//                 resolve(captura)
+//             }else{
+//                 reject("Los datos no son validos")
+//             }
+//     })
+// }
+
+// send.addEventListener('click',function(){
+//     fpcaptura( )
+// }
