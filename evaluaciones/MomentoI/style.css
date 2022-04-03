@@ -7,16 +7,19 @@
     background-color: #8E9A96;
     border-color: #8E9A96;
     width: 8rem;
+    margin: 1rem;
 }
 #btnlistadeinmueble{
     background-color: #8E9A96;
     border-color: #8E9A96;
     width: 8rem;
+    margin: 1rem;
 }
-#send{
+#btnsend{
     background-color: #8E9A96;
     border-color: #8E9A96;
     width: 8rem;
+    margin: 1rem;
 }
 body{
     padding: 1rem;

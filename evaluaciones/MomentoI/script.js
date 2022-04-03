@@ -102,17 +102,27 @@ btnlistadeinmueble.addEventListener('click',function(){
 })
 
 //enviar
-// function fpcaptura(captura){
-//     return new Promise((resolve,reject)=>{
-//             let mstate = true
-//             if(mstate){
-//                 resolve(captura)
-//             }else{
-//                 reject("Los datos no son validos")
-//             }
-//     })
-// }
+function fpcaptura(guardado,erroneo){
+    return new Promise((resolve,reject)=>{
+        let mstate = true
+        if(mstate){
+            resolve(guardado)
+        }else{
+            reject(erroneo)
+        }
+    })
+}
 
-// send.addEventListener('click',function(){
-//     fpcaptura( )
-// }
+btnsend.addEventListener('click',function(){
+        let idInmueble =document.getElementById("idInmueble").value
+        let direccion = document.getElementById("direccion").value
+        let precio = document.getElementById("precio").value
+        let telefono = document.getElementById("telefono").value
+        if(idInmueble != ""  & direccion != "" & precio >= 100000000 & precio <= 500000000 & telefono!=""){
+            guardado = document.getElementById('mensajesend').innerHTML = "successfully"
+            fpcaptura(guardado)
+        }else{
+            erroneo = document.getElementById('mensajesend').innerHTML = "error sending"
+            fpcaptura(erroneo)
+        }
+})

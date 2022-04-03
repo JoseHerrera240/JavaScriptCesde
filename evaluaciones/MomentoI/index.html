@@ -15,7 +15,7 @@
             <h3>Search your property</h3>
             <div class="form-group">
                 <label>Id property </label>
-                    <input class="form-control" type="text" name="idInmueble" id="idInmueble">
+                    <input class="form-control" type="number" name="idInmueble" id="idInmueble">
                     <span id="mid" class="spanrequired"></span>
             </div>  
             <div class="form-group">
@@ -33,13 +33,14 @@
                     <input class="form-control" type="number" name="precio" id="precio">
                     <span id="mprecio" class="spanrequired"></span>
             </div>
-            <div class="form-group"> 
-                <button type="button"  class="btn btn-primary" id="send">Send</button>
+            <div class="form-group" id="divbuttons"> 
+                <button type="button"  class="btn btn-primary" id="btnsend">Send</button>
                 <button id="buscar" class="btn btn-primary" type="button" onclick="search()">Search</button>
                 <button type="button"  class="btn btn-primary" id="btnlistadeinmueble">list properties</button>
             </div>
         </form>
             <p id="mensajenohay"></p>
+            <p id="mensajesend"></p>
             <p id="mensajepromesa"></p>
        
     <script src="../MomentoI/script.js"></script>
